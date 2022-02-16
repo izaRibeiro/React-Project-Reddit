@@ -1,0 +1,31 @@
+.box {
+    display: table-cell;
+    text-align: center;
+}
+.post-info, .author, .domain {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 20px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    color: #4C5667;
+}
+
+.post-info, .author, .domain, .post-title {
+    color: #4C5667;
+}
+
+.post-info, .author {
+    margin-bottom: 5px;
+}
+
+.author {
+    color: #6224c5;
+    margin-left: 5px;
+}
+
+.domain, .post-title {
+    font-weight: bold;
+}
