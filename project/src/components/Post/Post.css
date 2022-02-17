@@ -1,7 +1,7 @@
 .box {
-    display: table-cell;
-    text-align: center;
+    display: inline-flex;
 }
+
 .post-info, .author, .domain {
     font-style: normal;
     font-weight: normal;
@@ -11,6 +11,14 @@
     align-items: center;
     text-align: center;
     color: #4C5667;
+}
+
+.post-image {
+    max-height: 80px;
+}
+
+.post-box {
+    margin-top: 10px;
 }
 
 .post-info, .author, .domain, .post-title {
