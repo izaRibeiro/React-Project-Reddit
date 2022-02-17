@@ -10,15 +10,19 @@ function App() {
     const [typePost, setTypePost] = useState('hot')
     
     useEffect(() => {
+        getPosts()
+    }, [typePost]);
+
+    function handleClick(e) {
+        setTypePost(e)
+    }
+
+    function getPosts() {
         fetch(`${API_URL}${typePost}.json`).then(res => {
             res.json().then(data => {
                 setPosts(data.data.children)
             })
         })
-    }, [subreddit]);
-
-    function handleClick(e) {
-        console.log('Componente pai.', e);
     }
 
     return (
