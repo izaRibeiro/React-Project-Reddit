@@ -8,17 +8,23 @@ function App() {
     const [posts, setPosts] = useState([])
     const [subreddit, setSubreddit] = useState('reactjs')
     const [typePost, setTypePost] = useState('hot')
+    const [limit, setLimit] = useState(5)
     
     useEffect(() => {
         getPosts()
-    }, [typePost]);
+    }, [typePost, limit]);
 
     function handleClick(e) {
         setTypePost(e)
+        setLimit(5)
+    }
+
+    function handleMore(e) {
+        setLimit(limit + 5)
     }
 
     function getPosts() {
-        fetch(`${API_URL}${typePost}.json`).then(res => {
+        fetch(`${API_URL}${typePost}.json?limit=${limit}`).then(res => {
             res.json().then(data => {
                 setPosts(data.data.children)
             })
@@ -35,7 +41,7 @@ function App() {
                 <div className="posts">
                     { posts ? posts.map((post, index) => <Post key={index} post={post.data} />) : null }
                 </div>
-                <More />
+                <More handleMore={(event) => {handleMore(event)}} />
             </div>
         </div>
     )
